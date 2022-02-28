@@ -67,6 +67,7 @@ client.on('messageCreate', async (message) => {
                 var dateTime = date+' '+time;
                 await guildSchema.findOneAndUpdate({ guildID: message.guild.id }, {lastBump: new Date()})
                 await message.channel.send('Bumped!')
+                await guildSchema.save()
             } catch {
                 
             }
