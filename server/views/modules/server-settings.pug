@@ -1,0 +1,26 @@
+section#serverSettingsModule.module.container.px-5
+    form(action='/server/' + guild.id + '/serversetting?_method=PUT', method='POST')
+        .jumbotron.bg-transparent.pb-0.white
+            h1.display-4.text-center Server Settings 
+        .form-group.my-5.white
+            .row
+                .col-4 
+                    label Title
+                    input.form-control(type='text', name='title', value=guild.name)
+                .col-4 
+                    label Short-Description
+                    if gs == 'NONE'
+                        input.form-control(type='text', name='shortdescription', value='A Short description')
+                    else 
+                        input.form-control(type='text', name='shortdescription',value=savedGuild.shortdescription)
+                .col-4 
+                    label Long-Description
+                    if gs == 'NONE'
+                        input.form-control(type='text', name='longdescription', value='A long description')
+                    else 
+                        //- input.form-control(type='text', name='longdescription', value=savedGuild.longdescription)
+                        textarea#server-description.textarea(name='longdescription', style='height: 130x; width: 500px;')
+                            | #{savedGuild.longdescription}
+
+        .d-flex.justify-content-center 
+            button.btn.btn-success #[i.fas.fa-rocket] Publish

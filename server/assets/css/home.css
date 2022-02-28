@@ -1,0 +1,30 @@
+body {
+    background-color: #242424;
+}
+
+h1, p {
+    color: white;
+}
+
+.sectioned {
+    height: 35vh;
+}
+
+.vert-allign {
+    vertical-align: middle;
+}
+
+.sectionDiv {
+    padding-left: 2vh;
+}
+
+.divide {
+    height: 3px!important;
+    border-radius: .5rem;
+    width: 260px!important;
+    margin-left: 15px;
+}
+
+.m2 {
+    margin-left: 2vh;
+}

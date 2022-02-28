@@ -1,0 +1,15 @@
+doctype
+html(lang="en")
+    head
+        include includes/header.pug
+    body(style="background-color: #242424;")
+        include includes/navbar.pug
+        div(style=('display:inline-block;vertical-align:top;'))
+            img.mt-5.ms-5(src=guild.iconURL(), alt=guild.name, style='border-radius: 20%; height: 25vh;')
+        div(style='display:inline-block')
+            hr.white.mt-5
+            h1.white.mt-2.ms-3 #{guild.name}
+            a.btn.btn-primary.ms-3(href=`${savedGuild.inv}`, style="margin-right: 0.3rem;") #[i.fa-solid.fa-arrow-right-to-bracket] Join
+            a.btn.btn-danger.ms-1(href='/report/'+guild.id) #[i.fa-solid.fa-gavel] Report
+            .container
+                p.lead.white.ms-1.mt-5 #{savedGuild.longdescription}

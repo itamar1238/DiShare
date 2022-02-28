@@ -1,0 +1,11 @@
+.navbar {
+    /* position: fixed; */
+    /* width: 100%; */
+    transition: top 0.3s;
+    z-index: 100;
+    /* top: -200px; */
+}
+.nf {
+    position: relative!important;
+    z-index: -5!important;
+}

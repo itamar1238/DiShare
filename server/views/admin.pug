@@ -1,0 +1,36 @@
+doctype
+html(lang="en")
+    head
+        include includes/header.pug
+        link(rel="stylesheet", href='/css/home.css')
+    body 
+        include includes/navbar.pug
+        .container.px-5
+            form(action='/adminpanel/feature?_method=PUT', method='POST')
+                .jumbotron.bg-transparent.pb-0
+                    h1.display-4.text-center Feature a server
+                    hr.white
+                    p.lead.text-center Please get approval before doing this! 
+                .form-group.my-5.white
+                    .row.justify-content-center
+                        .col-10
+                            label Submit GuildID
+                            input.form-control(type='text', name='guildID', value="ID")
+                .d-flex.justify-content-center 
+                    button.btn.btn-success #[i.fas.fa-rocket] Feature
+                    a.btn.btn-primary.btn-secondary.ms-4(href='/', role='button') Return Home
+
+            .container.px-5
+            form(action='/adminpanel/unfeature?_method=PUT', method='POST')
+                .jumbotron.bg-transparent.pb-0
+                    h1.display-4.text-center Unfeature a server
+                    hr.white
+                    p.lead.text-center Please get approval before doing this! 
+                .form-group.my-5.white
+                    .row.justify-content-center
+                        .col-10
+                            label Submit GuildID
+                            input.form-control(type='text', name='guildID', value="ID")
+                .d-flex.justify-content-center 
+                    button.btn.btn-success #[i.fas.fa-rocket] Unfeature
+                    a.btn.btn-primary.btn-secondary.ms-4(href='/', role='button') Return Home

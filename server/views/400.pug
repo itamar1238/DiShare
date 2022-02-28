@@ -1,0 +1,16 @@
+doctype
+html(lang="en")
+    head
+        include includes/header.pug
+        link(rel="stylesheet", href='/css/home.css')
+        script(src='/js/carousel.js', defer)
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', integrity='sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==', crossorigin='anonymous', referrerpolicy='no-referrer')
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', integrity='sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==', crossorigin='anonymous', referrerpolicy='no-referrer')
+    body
+        //- include includes/navbar.pug
+        .container
+            .jumbotron.justify-content-center.bg-transparent.text-center(style='padding-top: 30vh;')
+                h1.white 400
+                hr.white 
+                p.lead Request Failed
+                a.btn.btn-primary.btn-secondary(href='/', role='button') Return Home

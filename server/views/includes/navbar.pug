@@ -1,0 +1,50 @@
+link(rel='stylesheet', href='/css/navbar.css')
+#navbar.nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .container-fluid
+    a.navbar-brand(href='/') DiShare
+    button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarNavAltMarkup.collapse.navbar-collapse
+      .navbar-nav
+        a.nav-link(href='/categories') Categories
+      .navbar-nav.ms-auto
+        if user!=false
+          //- a.nav-link(href=`/user`) #[button.btn.btn-primary(type='button') #{user.username}]
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-bs-toggle='dropdown', aria-expanded='false')
+              img.user-avatar.round(src=user.avatarUrl(32))
+              span.ps-2 #{user.username}
+            ul.dropdown-menu(aria-labelledby='navbarDropdown')
+              li
+                a.dropdown-item(href='/servers') My Servers
+              li
+                a.dropdown-item(href='/logout') Logout
+              li
+              if user.id == "481186732075646992"
+                hr.dropdown-divider
+                li
+                  a.dropdown-item(href='/adminpanel') Admin Panel
+              //-   hr.dropdown-divider
+              //- li
+              //-   a.dropdown-item(href='#') Something else here
+
+        else
+          a.nav-link(href=`/signin`) #[button.btn.btn-primary(type='button') Login]
+
+//- #navbar.nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.nf
+//-   .container-fluid
+//-     a.navbar-brand(href='/') DiShare
+//-     button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+//-       span.navbar-toggler-icon
+
+//- script.
+//-   // When the user scrolls down 20px from the top of the document, slide down the navbar
+//-   window.onscroll = function() {scrollFunction()};
+//-   function scrollFunction() {
+//-   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//-   document.getElementById("navbar").style.top = "0";
+//-   } else {
+//-   document.getElementById("navbar").style.top = "-200px";
+//-   }
+//-   }
+

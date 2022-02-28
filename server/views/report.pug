@@ -1,0 +1,21 @@
+doctype
+html(lang="en")
+    head
+        include includes/header.pug
+    body
+        .module.container.px-5
+            form(action='/report/' + guild.id + '/report?_method=PUT', method='POST')
+                .jumbotron.bg-transparent.pb-0
+                    h1.display-4.text-center REPORT
+                    p.lead.text-center A report will only go through if there are 1500 character or less. If there are more you will be greeted with an error!
+                    p.lead.text-center All reports are anonymous!
+                    hr
+                    p.lead.text-center REPORTING: #{guild.name}
+                .form-group.my-5.white
+                    .row.justify-content-center
+                        .col-10
+                            label Report Form
+                            input.form-control(type='text', name='report', value="Report")
+                .d-flex.justify-content-center 
+                    button.btn.btn-success #[i.fas.fa-rocket] REPORT
+                    a.btn.btn-primary.btn-secondary.ms-4(href='/', role='button') Return Home

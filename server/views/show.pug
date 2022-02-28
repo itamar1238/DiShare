@@ -1,0 +1,29 @@
+doctype
+html(lang="en")
+    head
+        include includes/header.pug
+        script(src='/js/sidebar.js', defer)
+        script(src='/js/guild.js', defer)
+        link(rel='stylesheet', href='/css/sidebar.css')
+        link(rel='stylesheet', href='/css/servers.css')
+    body
+        include includes/sidebar.pug
+
+        #sidebarExtension.bg-dark
+            header.text-center.pt-4
+                .large-icon.bg-white.round
+                    if guild.icon
+                        img.round(src=guild.iconURL({ dynamic: true, size: 128 }), alt=guild.name)
+                    else
+                        p.abbr #{guild.nameAcronym}
+                h4#overview.pt-2.white #{guild.name}
+            .tabs.navbar-nav
+                .category.white Modules
+                a#serverSettings.cursor-pointer #[i.fa-solid.fa-gear] Server Settings
+                a#serverHistory.cursor-pointer #[i.fa-solid.fa-chart-area] Server History
+
+        include includes/navbar.pug
+
+        include modules/overview 
+        include modules/server-settings 
+        include modules/server-history
