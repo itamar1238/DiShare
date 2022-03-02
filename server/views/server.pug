@@ -11,5 +11,6 @@ html(lang="en")
             h1.white.mt-2.ms-3 #{guild.name}
             a.btn.btn-primary.ms-3(href=`${savedGuild.inv}`, style="margin-right: 0.3rem;") #[i.fa-solid.fa-arrow-right-to-bracket] Join
             a.btn.btn-danger.ms-1(href='/report/'+guild.id) #[i.fa-solid.fa-gavel] Report
+            p.ms-3.mt-5(style="color: #808080;") Server Description:
             .container
-                p.lead.white.ms-1.mt-5 #{savedGuild.longdescription}
+                p.lead.white.ms-1 #{savedGuild.longdescription}

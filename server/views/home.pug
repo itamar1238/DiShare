@@ -35,7 +35,7 @@ html(lang="en")
                             .card-body(style='color: #b7b7b7;')
                                 h5.card-title #{server.title}
                                 p.card-text #{server.shortdescription}
-                                h5.card-text(style='color: #00bbf3; margin-bottom: 0.8rem;') Category: Social
+                                h5.card-text(style='color: #00bbf3; margin-bottom: 0.8rem;') Categories: #{server.tagsString}
                                 a.btn.btn-primary(href=`${server.inv}`, style="margin-right: 0.3rem;") #[i.fa-solid.fa-arrow-right-to-bracket] Join
                                 a.btn.btn-danger(href='/report/'+server.reportID) #[i.fa-solid.fa-gavel] Report
         h3.color-light.sectionDiv Latest Added Servers:
@@ -50,7 +50,7 @@ html(lang="en")
                             .card-body(style='color: #b7b7b7;')
                                 h5.card-title #{server.title}
                                 p.card-text #{server.shortdescription}
-                                h5.card-text(style='color: #00bbf3; margin-bottom: 0.8rem;') Category: Social
+                                h5.card-text(style='color: #00bbf3; margin-bottom: 0.8rem;') Categories: #{server.tagsString}
                                 a.btn.btn-primary(href=`${server.inv}`, style="margin-right: 0.3rem;") #[i.fa-solid.fa-arrow-right-to-bracket] Join
                                 a.btn.btn-danger(href='/report/'+server.reportID) #[i.fa-solid.fa-gavel] Report
             //- .item
@@ -92,7 +92,7 @@ html(lang="en")
                             .card-body(style='color: #b7b7b7;')
                                 h5.card-title #{server.title}
                                 p.card-text #{server.shortdescription}
-                                h5.card-text(style='color: #00bbf3; margin-bottom: 0.8rem;') Category: Social
+                                h5.card-text(style='color: #00bbf3; margin-bottom: 0.8rem;') Categories: #{server.tagsString}
                                 a.btn.btn-primary(href=`${server.inv}`, style="margin-right: 0.3rem;") #[i.fa-solid.fa-arrow-right-to-bracket] Join
                                 a.btn.btn-danger(href='/report/'+server.reportID) #[i.fa-solid.fa-gavel] Report
             //- .item

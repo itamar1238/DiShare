@@ -8,7 +8,9 @@ const guildSchema = new mongoose.Schema({
   inv: { type: String, require: true },
   reportID: {type: String, require: true},
   featured: {type: String, require: true},
-  lastBump: {type: String, require: true}
+  lastBump: {type: String, require: true},
+  tags: {type: Array, require: true},
+  tagsString: {type: String, require: true}
 })
 
 const model = mongoose.model('guilds', guildSchema)

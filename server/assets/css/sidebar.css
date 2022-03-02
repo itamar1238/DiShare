@@ -21,7 +21,7 @@
     font-size: xxx-large;
 
     bottom: 0;
-    position: absolute;
+    /* position: fixed; */
 }
 
 #sidebar {

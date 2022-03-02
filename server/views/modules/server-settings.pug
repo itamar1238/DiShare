@@ -21,6 +21,12 @@ section#serverSettingsModule.module.container.px-5
                         //- input.form-control(type='text', name='longdescription', value=savedGuild.longdescription)
                         textarea#server-description.textarea(name='longdescription', style='height: 130x; width: 500px;')
                             | #{savedGuild.longdescription}
+                .col-4
+                    label Tags(4 Max)
+                    if gs == 'NONE'
+                        input.form-control(type-'text', name='tags', value='')
+                    else
+                        input.form-control(type-'text', name='tags', value=savedGuild.tagsString)
 
         .d-flex.justify-content-center 
             button.btn.btn-success #[i.fas.fa-rocket] Publish

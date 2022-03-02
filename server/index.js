@@ -186,16 +186,29 @@ app.put('/server/:id/:module', async (req,res) => {
     try {
         const { id, module } = req.params;
         let savedGuild = await guildSchema.findOne({ guildID: req.params.id })
+        let tagArray;
+        let tagsStr = req.body.tags;
+        if (req.body.tags == '') {
+            tagArray = []
+        } else {
+            tagsStr = tagsStr.replace(/\s+/g, '')
+            try {
+                tagArray = tagsStr.split(',', 4)
+            } catch {
+                tagArray = [`${tagsStr}`]
+            }
+        }
         if (!savedGuild) {
-            var today = new Date();
-            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            var dateTime = date+' '+time;
-            savedGuild = await guildSchema.create({ guildID: req.params.id, title: bot.guilds.cache.get(id).name, shortdescription: req.body.shortdescription, longdescription: req.body.longdescription, inv: 'NONE', reportID: id, featured: false, lastBump: new Date() })
+            // var today = new Date();
+            // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            // var dateTime = date+' '+time;
+            
+            savedGuild = await guildSchema.create({ guildID: req.params.id, title: bot.guilds.cache.get(id).name, shortdescription: req.body.shortdescription, longdescription: req.body.longdescription, inv: 'NONE', reportID: id, featured: false, lastBump: new Date(), tags: tagArray,tagsString: tagsStr })
             await savedGuild.save()
         } else {
             try {
-                await guildSchema.findOneAndUpdate({ guildID: id }, {shortdescription: req.body.shortdescription, longdescription: req.body.longdescription})
+                await guildSchema.findOneAndUpdate({ guildID: id }, {shortdescription: req.body.shortdescription, longdescription: req.body.longdescription, tags: tagArray, tagsString: tagsStr}) //FINISH TAGS MFIUSNGID
             } catch {
                 res.render('400')
             }
@@ -319,14 +332,16 @@ app.get('/search', async (req,res) => {
         isCaseSensitive: false,
         keys: [
             { name: 'title', weight: 1 },
-            { name: 'inv', weight: 0.5 }
+            { name: 'inv', weight: 0.5 },
+            { name: 'tags', weight: 0.7 } 
         ]
     }).search(query).map(r => r.item);
     // console.log(results)
     res.render('search', {
         results: results,
         user: await isUser(req),
-        bot: bot
+        bot: bot,
+        q: query
     })
 })
 
